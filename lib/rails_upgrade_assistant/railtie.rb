@@ -38,7 +38,7 @@ module RailsUpgradeAssistant
         apply_from("7.0", app)
       when "7.0"
         Rails71.patch(app)
-        apply_from("7.2", app)
+        apply_from("7.1", app)
       end
     end
 
