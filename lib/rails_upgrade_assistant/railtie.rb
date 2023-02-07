@@ -3,7 +3,9 @@ require_relative "./patchers/rails71"
 
 module RailsUpgradeAssistant
   class Railtie < ::Rails::Railtie
-    initializer "rails_upgrade_assistant.breaking_changes" do |app|
+    initializer "rails_upgrade_assistant" do |app|
+      check_silenced_deprecations(app)
+
       apply_from "#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}", app
     end
 
@@ -37,6 +39,14 @@ module RailsUpgradeAssistant
       when "7.0"
         Rails71.patch(app)
         apply_from("7.2", app)
+      end
+    end
+
+    def check_silenced_deprecations(app)
+      if ActiveSupport::Deprecation.silenced ||
+         app.config.active_support.deprecation == :silence ||
+         app.config.active_support.deprecation_behavior == :silence
+        puts("[Upgrade Assistant] Deprecation warnings are silenced!")
       end
     end
   end

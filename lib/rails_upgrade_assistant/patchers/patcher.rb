@@ -28,10 +28,10 @@ class Patcher
   end
 
   def checks
-    methods.select{ |m| m.start_with?("check_")}
+    methods.select{ |m| m.to_s.start_with?("check_")}
   end
 
   def monkey_patches
-    methods.select{ |m| m.start_with?("monkey_patch_")}
+    methods.select{ |m| m.to_s.start_with?("monkey_patch_")}
   end
 end
