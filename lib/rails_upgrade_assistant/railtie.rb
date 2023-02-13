@@ -46,7 +46,7 @@ module RailsUpgradeAssistant
       if ActiveSupport::Deprecation.silenced ||
          app.config.active_support.deprecation == :silence ||
          app.config.active_support.deprecation_behavior == :silence
-        puts("[Upgrade Assistant] Deprecation warnings are silenced!")
+        Patcher.warn("Deprecation warnings are silenced!")
       end
     end
   end

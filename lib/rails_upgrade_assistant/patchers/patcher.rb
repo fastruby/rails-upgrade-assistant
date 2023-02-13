@@ -11,8 +11,8 @@ class Patcher
     @app = app
   end
 
-  def warn(message)
-    puts("[Upgrade Assistant] #{patched_version}: #{message}")
+  def self.warn(message)
+    puts("[Upgrade Assistant] #{patched_version}: #{message} (#{caller[1]})")
   end
 
   def patched_version

@@ -11,16 +11,6 @@ Add this line to your application's Gemfile:
 gem 'rails_upgrade_assistant'
 ```
 
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install rails_upgrade_assistant
-```
-
 ## Contributing
 Contribution directions go here.
 
