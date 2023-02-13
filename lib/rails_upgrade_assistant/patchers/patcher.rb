@@ -12,7 +12,11 @@ class Patcher
   end
 
   def self.warn(message)
-    puts("[Upgrade Assistant] #{patched_version}: #{message} (#{caller[1]})")
+    # TODO: allow a configuration to decide where to output this information to
+    # log / stdout / file
+    output = "[Upgrade Assistant] #{patched_version}: #{message} (#{caller[1]})"
+    Rails.logger.info(output)
+    puts(output)
   end
 
   def patched_version
